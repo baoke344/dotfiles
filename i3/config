@@ -113,6 +113,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 assign [class="firefox"] 2
+assign [class="Google-chrome"] 3
+assign [class="jetbrains-idea"] 4
+assign [class="GitKraken"] 6
+assign [class="Slack"] 7
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
