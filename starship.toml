@@ -18,6 +18,6 @@ disabled = true
 symbol = ' '
 style = 'blue dimmed'
 
-[directory]
-truncation_length = 8
-truncation_symbol = '…/'
+#[directory]
+#truncation_length = 8
+# truncation_symbol = '…/'
