@@ -120,6 +120,7 @@ assign [class="jetbrains-idea"] 4
 assign [class="GitKraken"] 6
 assign [class="Slack"] 7
 assign [class="Skype"] 7
+assign [class="TelegramDesktop"] 7
 assign [class="Virt-manager"] 8
 assign [class="parsecd"] 10
 # Define names for default workspaces for which we configure key bindings later on.
