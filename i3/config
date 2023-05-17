@@ -57,11 +57,10 @@ tiling_drag modifier titlebar
 bindsym Print exec flameshot gui
 # start a terminal
 bindsym $mod+Return exec kitty
-# open clipmenu
-bindsym $mod+m exec --no-startup-id clipmenu &
 # kill focused window
 bindsym $mod+q kill
-
+# lock screen with betterlockscreen
+bindsym $mod2+l exec betterlockscreen -l
 # start rofi (a program launcher)
 bindsym $mod+p exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
