@@ -9,4 +9,3 @@ picom --config ~/.config/picom/picom.conf &
 flameshot &
 #start nm-applet
 nm-applet &
-

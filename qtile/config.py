@@ -50,6 +50,7 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc='volume mute'),
+    Key([mod], "s", lazy.spawn('flameshot gui'), desc='Open flameshot gui'),
  
 ]
 
@@ -60,11 +61,12 @@ groups = [
         Group('2', label='', matches=[Match(wm_class='firefox')]),
         Group('3', label='', matches=[Match(wm_class='Google-chrome')]),
         Group('4', label='', matches=[Match(wm_class='jetbrains-idea')]),
-        Group('5', label=''),
-        Group('6', label='', matches=[Match(wm_class='GitKraken')]),
-        Group('7', label='', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
-        Group('8', label='󰨇', matches=[Match(wm_class='Virt-manager')]),
-        Group('9', label='󰨇', matches=[Match(wm_class='parsecd')])
+        Group('5', label='󰎙', matches=[Match(wm_class='jetbrains-webstorm')]),
+        Group('6', label=''),
+        Group('7', label='', matches=[Match(wm_class='GitKraken')]),
+        Group('8', label='', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
+        Group('9', label='󰨇', matches=[Match(wm_class='Virt-manager')]),
+        Group('0', label='󰨇', matches=[Match(wm_class='parsecd')])
         ]
 for i in groups:
     keys.extend(
@@ -91,23 +93,23 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Tile(margin=10),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    #layout.MonadTall(),
+    layout.MonadTall(),
     # layout.MonadWide(),
     #layout.RatioTile(),
-    layout.Tile(),
     layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="san",
     fontsize=12,
     padding=3,
 )
