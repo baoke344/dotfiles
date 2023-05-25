@@ -119,9 +119,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-def search():
-    qtile.cmd_spawn("rofi -show drun")
-
 def power():
     qtile.cmd_spawn("power")
 
@@ -172,18 +169,13 @@ screens = [
                     background='#353446',
                 ),
 
-
                 widget.Image(
                     filename='~/.config/qtile/Assets/1.png',
                 ),
-
-
                 widget.Image(
                     filename='~/.config/qtile/Assets/layout.png',
                     background="#353446"
                 ),
-
-
                 widget.CurrentLayout(
                     background='#353446',
                     foreground='#CAA9E0',
@@ -191,35 +183,9 @@ screens = [
                     font="JetBrains Mono Bold",
                     fontsize=13,
                 ),
-
-
                 widget.Image(
-                    filename='~/.config/qtile/Assets/5.png',
+                    filename='~/.config/qtile/Assets/1.png',
                 ),
-
-
-               # widget.Image(
-               #     filename='~/.config/qtile/Assets/search.png',
-               #     margin=2,
-               #     background='#282738',
-               #     mouse_callbacks={"Button1": search},
-               # ),
-
-                widget.TextBox(
-                    fmt='Search',
-                    background='#282738',
-                    font="JetBrains Mono Bold",
-                    fontsize=13,
-                    foreground='#CAA9E0',
-                    mouse_callbacks={"Button1": search},
-                ),
-
-
-                widget.Image(
-                    filename='~/.config/qtile/Assets/4.png',
-                ),
-
-
                 widget.WindowName(
                     background = '#353446',
                     format = "{name}",
@@ -248,14 +214,10 @@ screens = [
                     filename='~/.config/qtile/Assets/Misc/ram.png',
                     background='#353446',
                 ),
-
-
                 widget.Spacer(
                     length=-7,
                     background='#353446',
                 ),
-
-
                 widget.Memory(
                     background='#353446',
                     format='{MemUsed: .0f}{mm}',
