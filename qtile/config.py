@@ -47,9 +47,13 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     #Custom key binding
     Key([mod], "p", lazy.spawn("rofi -show drun"), desc="Run rofi drun mode"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc='volume mute'),
+    #Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
+    #Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
+    #Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc='volume mute'),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+"), desc='Volume Up'),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-"), desc='volume down'),
+    Key([], "XF86AudioMute", lazy.spawn("amixer sset Master mute"), desc='volume mute'),
+
     Key([mod], "s", lazy.spawn('flameshot gui'), desc='Open flameshot gui'),
  
 ]
@@ -119,7 +123,7 @@ def search():
     qtile.cmd_spawn("rofi -show drun")
 
 def power():
-    qtile.cmd_spawn("sh -c ~/.config/rofi/scripts/power")
+    qtile.cmd_spawn("power")
 
 screens = [
     Screen(

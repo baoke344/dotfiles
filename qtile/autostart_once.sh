@@ -9,3 +9,5 @@ picom --config ~/.config/picom/picom.conf &
 flameshot &
 #start nm-applet
 nm-applet &
+#start fcitx5
+fcitx5 &
