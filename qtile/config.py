@@ -55,7 +55,7 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master mute"), desc='volume mute'),
 
     Key([mod], "s", lazy.spawn('flameshot gui'), desc='Open flameshot gui'),
- 
+    Key([mod], "x", lazy.spawn('betterlockscreen -l'), desc='Lock screen'),  
 ]
 
 
