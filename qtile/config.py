@@ -128,10 +128,13 @@ widget_defaults = dict(
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
-
+###CUSTOM SCRIPT MOUSE CLICK CALL
 @lazy.function
 def power(qtile):
     qtile.cmd_spawn("sh -c /home/baoanh/.config/rofi/scripts/power")
+@lazy.function
+def calendar(qtile):
+    qtile.cmd_spawn("sh -c /home/baoanh/personal/scripts/calendar")
 
 screens = [
     Screen(
@@ -270,6 +273,7 @@ screens = [
                     background='#282738',
                     margin_y=6,
                     margin_x=5,
+                    mouse_callbacks={'Button1':calendar},
                 ),
                 widget.Clock(
                     format='%I:%M %p',
