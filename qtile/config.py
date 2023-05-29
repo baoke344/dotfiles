@@ -6,6 +6,16 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = "kitty"
 
+colors = []
+cache='/home/username/.cache/wal/colors'
+def load_colors(cache):
+    with open(cache, 'r') as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append('#ffffff')
+    lazy.reload()
+load_colors(cache)
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -119,8 +129,8 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-def power():
-    qtile.cmd_spawn("power")
+def power(qtile):
+    qtile.cmd_spawn("sh -c /home/baoanh/.config/rofi/scripts/power")
 
 screens = [
     Screen(
