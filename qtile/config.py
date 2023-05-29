@@ -7,7 +7,7 @@ mod = "mod4"
 terminal = "kitty"
 
 colors = []
-cache='/home/username/.cache/wal/colors'
+cache='/home/baoanh/.cache/wal/colors'
 def load_colors(cache):
     with open(cache, 'r') as file:
         for i in range(8):
@@ -129,6 +129,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+@lazy.function
 def power(qtile):
     qtile.cmd_spawn("sh -c /home/baoanh/.config/rofi/scripts/power")
 
