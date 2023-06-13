@@ -4,6 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$PATH:/home/baoanh/personal/scripts:/home/baoanh/.local/bin
+export EDITOR=/usr/bin/nvim
+export M2_HOME=/home/baoanh/personal/scripts/apache-maven-3.9.2
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

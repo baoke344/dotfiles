@@ -77,10 +77,11 @@ groups = [
         Group('4', label='', matches=[Match(wm_class='jetbrains-idea')]),
         Group('5', label='󰎙', matches=[Match(wm_class='jetbrains-webstorm')]),
         Group('6', label=''),
-        Group('7', label='', matches=[Match(wm_class='GitKraken')]),
-        Group('8', label='', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
-        Group('9', label='󰨇', matches=[Match(wm_class='Virt-manager')]),
-        Group('0', label='󰨇', matches=[Match(wm_class='parsecd')])
+        Group('7', label=''),
+        Group('8', label='', matches=[Match(wm_class='GitKraken')]),
+        Group('9', label='', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
+        Group('0', label='󰨇', matches=[Match(wm_class='Virt-manager')]),
+        Group('a', label='󰨇', matches=[Match(wm_class='parsecd')])
         ]
 for i in groups:
     keys.extend(
