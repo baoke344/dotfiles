@@ -71,15 +71,15 @@ keys = [
 
 #groups = [Group(f"{i+1}", label="󰏃") for i in range(8)]
 groups = [
-        Group('1', label=''),
+        Group('1', label='', layout='monadtall'),
         Group('2', label='', matches=[Match(wm_class='firefox')]),
         Group('3', label='', matches=[Match(wm_class='Google-chrome')]),
-        Group('4', label='', matches=[Match(wm_class='jetbrains-idea')]),
-        Group('5', label='󰎙', matches=[Match(wm_class='jetbrains-webstorm')]),
-        Group('6', label=''),
-        Group('7', label=''),
-        Group('8', label='', matches=[Match(wm_class='GitKraken')]),
-        Group('9', label='', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
+        Group('4', label='', layout='monadtall', matches=[Match(wm_class='jetbrains-idea')]),
+        Group('5', label='󰎙', layout='monadtall', matches=[Match(wm_class='jetbrains-webstorm')]),
+        Group('6', label='', layout='monadtall'),
+        Group('7', label='', layout='monadtall'),
+        Group('8', label='', layout='monadtall', matches=[Match(wm_class='GitKraken')]),
+        Group('9', label='', layout='monadtall', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
         Group('0', label='󰨇', matches=[Match(wm_class='Virt-manager')]),
         Group('a', label='󰨇', matches=[Match(wm_class='parsecd')])
         ]
@@ -109,7 +109,7 @@ for i in groups:
 
 layouts = [
     #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Tile(margin=10),
+    layout.Tile(margin=5),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -173,7 +173,9 @@ screens = [
                     this_screen_border='#353446',
                     other_current_screen_border='#353446',
                     other_screen_border='#353446',
-                    urgent_border='#353446',
+                    urgent_alert_method='text',
+                    urgent_border='#f2190a',
+                    urgent_text='#f2190a',
                     rounded=True,
                     disable_drag=True,
                  ),
@@ -306,7 +308,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
