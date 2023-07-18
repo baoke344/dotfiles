@@ -54,7 +54,7 @@ focus_follows_mouse no
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 # flameshot gui
-bindsym Print exec flameshot gui
+bindsym $mod2+m exec flameshot gui
 # start a terminal
 bindsym $mod+Return exec kitty
 # kill focused window
