@@ -7,7 +7,7 @@ import colors
 mod = "mod4"
 terminal = "kitty"
 
-colors = colors.Dracula
+colors = colors.MyColor
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -175,7 +175,7 @@ screens = [
                     padding_y=2,
                     padding_x=1,
                     borderwidth=8,
-                    active=colors[8],
+                    active=colors[4],
                     inactive=colors[1],
                     rounded=False,
                     highlight_method="block",
@@ -183,6 +183,9 @@ screens = [
                     urgent_border=colors[3],
                     urgent_text=colors[3],
                     disable_drag=True,
+                    this_current_screen_border=colors[6],
+                    this_screen_border=colors[6],
+
                 ),
                 widget.TextBox(
                     text='|',
