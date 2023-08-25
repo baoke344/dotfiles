@@ -185,7 +185,7 @@ screens = [
                     disable_drag=True,
                     this_current_screen_border=colors[6],
                     this_screen_border=colors[6],
-
+                    hide_unused=True
                 ),
                 widget.TextBox(
                     text='|',
