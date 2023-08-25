@@ -2,19 +2,18 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
+import colors
 mod = "mod4"
 terminal = "kitty"
 
-colors = []
-cache='/home/baoanh/.cache/wal/colors'
-def load_colors(cache):
-    with open(cache, 'r') as file:
-        for i in range(8):
-            colors.append(file.readline().strip())
-    colors.append('#ffffff')
-    lazy.reload()
-load_colors(cache)
+colors = colors.DoomOne
+#def load_colors(cache):
+#    with open(cache, 'r') as file:
+#        for i in range(8):
+#            colors.append(file.readline().strip())
+#    colors.append('#ffffff')
+#    lazy.reload()
+#load_colors(cache)
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -76,7 +75,7 @@ groups = [
         Group('3', label='', matches=[Match(wm_class='Google-chrome')]),
         Group('4', label='', layout='monadtall', matches=[Match(wm_class='jetbrains-idea')]),
         Group('5', label='󰎙', layout='monadtall', matches=[Match(wm_class='jetbrains-webstorm')]),
-        Group('6', label='', layout='monadtall'),
+        Group('6', label='', layout='monadtall', matches=[Match(wm_class='jetbrains-pycharm')]),
         Group('7', label='', layout='monadtall'),
         Group('8', label='', layout='monadtall', matches=[Match(wm_class='GitKraken')]),
         Group('9', label='', layout='monadtall', matches=[Match(wm_class='Slack'), Match(wm_class='Skype'), Match(wm_class='TelegramDesktop')]),
@@ -118,15 +117,35 @@ layouts = [
     layout.MonadTall(),
     # layout.MonadWide(),
     #layout.RatioTile(),
-    layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
+    layout.TreeTab(
+         font = "Ubuntu Bold",
+         fontsize = 11,
+         border_width = 0,
+         bg_color = colors[0],
+         active_bg = colors[8],
+         active_fg = colors[1],
+         inactive_bg = colors[1],
+         inactive_fg = colors[2],
+         padding_left = 8,
+         padding_x = 8,
+         padding_y = 6,
+         sections = ["ONE", "TWO", "THREE"],
+         section_fontsize = 10,
+         section_fg = colors[2],
+         section_top = 15,
+         section_bottom = 15,
+         level_shift = 8,
+         vspace = 3,
+         panel_width = 240
+         ),
 ]
 
 widget_defaults = dict(
     font="san",
-    fontsize=12,
-    padding=3,
+    fontsize=15,
+    padding=0,
 )
 extension_defaults = widget_defaults.copy()
 ###CUSTOM SCRIPT MOUSE CLICK CALL
@@ -135,101 +154,74 @@ def power(qtile):
     qtile.cmd_spawn("sh -c /home/baoanh/.config/rofi/scripts/power")
 @lazy.function
 def calendar(qtile):
-    qtile.cmd_spawn("sh -c /home/baoanh/personal/scripts/calendar")
+    qtile.cmd_spawn("sh -c /home/baoanh/personal/scripts/calendar2")
 
 screens = [
     Screen(
         top=bar.Bar(
             [   
-	            widget.Spacer(length=15,
-                    background='#282738',
-                ),
-
-
                 widget.Image(
                     filename='~/.config/qtile/Assets/launch_Icon.png',
                     margin=2,
                     background='#282738',
                     mouse_callbacks={"Button1":power},
                 ),
-
-
-                widget.Image(
-                    filename='~/.config/qtile/Assets/6.png',
-                ),
-
-
                 widget.GroupBox(
-                    fontsize=24,
-                    borderwidth=3,
-                    highlight_method='block',
-                    active='#CAA9E0',
-                    block_highlight_text_color="#91B1F0",
-                    highlight_color='#4B427E',
-                    inactive='#282738',
-                    foreground='#4B427E',
-                    background='#353446',
-                    this_current_screen_border='#353446',
-                    this_screen_border='#353446',
-                    other_current_screen_border='#353446',
-                    other_screen_border='#353446',
-                    urgent_alert_method='text',
-                    urgent_border='#f2190a',
-                    urgent_text='#f2190a',
-                    rounded=True,
-                    disable_drag=True,
+                    fontsize = 15,
+                    margin_y = 3,
+                    margin_x = 4,
+                    padding_y = 2,
+                    padding_x = 3,
+                    borderwidth = 4,
+                    active = colors[8],
+                    inactive = colors[1],
+                    rounded = False,
+                    highlight_color = colors[2],
+                    highlight_method = "line",
+                    #this_current_screen_border = colors[7],
+                    #this_screen_border = colors [4],
+                    #other_current_screen_border = colors[7],
+                    #other_screen_border = colors[4],
                  ),
-
-
-                widget.Spacer(
-                    length=8,
-                    background='#353446',
-                ),
-
-                widget.Image(
-                    filename='~/.config/qtile/Assets/1.png',
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/layout.png',
-                    background="#353446"
-                ),
+                widget.TextBox(
+                    text = '|',
+                    font = "Ubuntu Mono",
+                    foreground = colors[1],
+                    padding = 2,
+                    fontsize = 14
+                 ),
+                widget.CurrentLayoutIcon(
+                 # custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+                    foreground = colors[1],
+                    padding = 0,
+                    scale = 0.7
+                 ),
                 widget.CurrentLayout(
-                    background='#353446',
-                    foreground='#CAA9E0',
-                    fmt='{}',
+                    foreground=colors[1],
                     font="JetBrains Mono Bold",
-                    fontsize=13,
+                    padding=5
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/1.png',
+                widget.TextBox(
+                    text = '|',
+                    font = "Ubuntu Mono",
+                    foreground = colors[1],
+                    padding = 2,
+                    fontsize = 14
                 ),
                 widget.WindowName(
-                    background = '#353446',
                     format = "{name}",
                     font='JetBrains Mono Bold',
-                    foreground='#CAA9E0',
+                    foreground=colors[6],
                     empty_group_string = 'Desktop',
                     fontsize=13,
 
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/3.png',
-                ),
                 widget.Systray(
-                    background='#282738',
                     fontsize=2,
                 ),
                 widget.TextBox(
                     text=' ',
                     background='#282738',
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/6.png',
-                    background='#353446',
-                ),
-               widget.Image(
-                    filename='~/.config/qtile/Assets/Misc/ram.png',
-                    background='#353446',
                 ),
                 widget.Spacer(
                     length=-7,
@@ -242,9 +234,6 @@ screens = [
                     font="JetBrains Mono Bold",
                     fontsize=13,
                     update_interval=5,
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/2.png',
                 ),
                 widget.Spacer(
                     length=8,
@@ -259,6 +248,7 @@ screens = [
                 ),
                 widget.Spacer(
                     length=-5,
+                    
                     background='#353446',
                     ),
                 widget.Volume(
@@ -266,10 +256,6 @@ screens = [
                     background='#353446',
                     foreground='#CAA9E0',
                     fontsize=13,
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/Assets/5.png',
-                    background='#353446',
                 ),
                 widget.Image(
                     filename='~/.config/qtile/Assets/Misc/clock.png',
@@ -290,13 +276,9 @@ screens = [
                     background='#282738',
                 ),
             ],
-            30,
-            border_color = '#282738',
-            border_width = [0,0,0,0],
-            margin = [15,60,6,60],
-
+            size=32,
         ),
-                ),
+ ),
 ]
 
 # Drag floating layouts.
