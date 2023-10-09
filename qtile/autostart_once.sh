@@ -4,7 +4,7 @@
 #wal -R &
 nitrogen --restore
 # Start picom
-#picom --config ~/.config/picom/picom.conf &
+picom --config ~/.config/picom/picom.conf &
 #start flameshot
 flameshot &
 #start nm-applet
